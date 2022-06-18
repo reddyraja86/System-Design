@@ -16,4 +16,16 @@
 - No single point of failyre
 
 
+
 ![alt text](WhatsApp-SystemDesign.png?raw=true)
+
+### Execution flow
+
+- User A registers with whats app application by sending a http request to user registration microaervice behind the loadbalancer and api gateway.
+- User 
+
+### Message format
+
+### Apis required
+
+### Database tables 
