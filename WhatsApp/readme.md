@@ -22,7 +22,9 @@
 ### Execution flow
 
 - User A registers with whats app application by sending a http request to user registration microaervice behind the loadbalancer and api gateway.
-- User 
+- User Details like mobile number,email Id,password are validated and saved in database.
+- once the user is registered,Send the message on to the user regisrtration topic.
+- 
 
 ### Message format
 
