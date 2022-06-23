@@ -43,3 +43,8 @@ Redis Cache - INCR and EXPIRE
 High avialibility Issues :
 	Race Condition    : Solution - Locking the record(effects performance),LUA script or Sorted sets
     Data consistency  : Solution - SIngle Redis Cache for multiple instances of Ratelimiter
+	
+	
+
+KV store :
+==========
