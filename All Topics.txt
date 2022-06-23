@@ -48,3 +48,51 @@ High avialibility Issues :
 
 KV store :
 ==========
+
+
+We need to support 
+
+-put(key,value)
+-get(key)
+
+-Low latency
+-Avoid race conditions
+-Cache eviction LIFO
+
+We will use the inmemory for storing key value
+
+Node{
+	Node prev;
+	Node next;
+	Obj Data;
+}
+Cache Util {
+	DoubleLinkedList<Node>
+	HashMap<key,Obj> 
+	int cacheLimit;
+}
+
+This will work fine for till certain limit
+
+Now we will move the cache to it own node and increment the no of nodes.
+
+cache running in its own cluster
+
+- we have a cache client and it will be communicated with cache cluster through tcp/websockets.
+- similarly cache cluster wil communiate with each other using gossip protocol.
+
+
+Here we have two approaches to distribue the keys or load
+1) Using sharding by dividing the server based on cache (like s1- will serve 1 to 100)
+2) Using consistent hashing
+
+Race conditions
+1) Allow onlt one therad at a time ( this will be perforamamnce issue)
+or
+2) Using vector locks
+
+Single point of failure 
+1) all the nodes will have a replition node to handle the failure.
+
+
+ 
