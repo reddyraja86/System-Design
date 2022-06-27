@@ -95,4 +95,15 @@ Single point of failure
 1) all the nodes will have a replition node to handle the failure.
 
 
- 
+Redis Cluster does not use consistent hashing, but a different form of sharding where every key is conceptually part of what we call a hash slot.
+
+There are 16384 hash slots in Redis Cluster, and to compute the hash slot for a given key, we simply take the CRC16 of the key modulo 16384.
+
+Every node in a Redis Cluster is responsible for a subset of the hash slots, so, for example, you may have a cluster with 3 nodes, where:
+
+Node A contains hash slots from 0 to 5500.
+Node B contains hash slots from 5501 to 11000.
+Node C contains hash slots from 11001 to 16383.
+This makes it easy to add and remove cluster nodes. For example, if I want to add a new node D, I need to move some hash slots from nodes A, B, C to D. Similarly, if I want to remove node A from the cluster, I can just move the hash slots served by A to B and C. Once node A is empty, I can remove it from the cluster completely.
+
+Moving hash slots from a node to another does not require stopping any operations; therefore, adding and removing nodes, or changing the percentage of hash slots held by a node, requires no downtime. 
