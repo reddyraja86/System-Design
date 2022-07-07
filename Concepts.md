@@ -1,7 +1,5 @@
 # System Design Interview Template
 
----
-
 1. Requirements Gathering
    1. Functional Requirements
       - Different users ( Drivers/customers)
@@ -36,7 +34,7 @@
 6. Deep Dive in to Design
    1. Scaling Algorithms/Consistent Hashing etc
    2. Scaling each Component
-      - Micro services scaling
+      - Micro services Communication/ scaling
       - DB Scaling
       - Availability, Consistency and Scale story for each component
       - Consistency and availability patterns
@@ -47,43 +45,55 @@
 
 # Topics
 
----
-
 1. Latency and Throughput requirements
 2. Consistency vs Availability [Weak/strong/eventual => consistency | Failover/replication => availability]
 3. DNS
-   4
-   b) CDN [Push vs Pull]
-   c) Load Balancers [Active-Passive, Active-Active, Layer 4, Layer 7]
-   d) Reverse Proxy/Forward Proxy
-   e) Application layer scaling [Microservices, Service Discovery]
-   f) DB [RDBMS, NoSQL] > RDBMS >> Master-slave, Master-master, Federation, Sharding, Denormalization, SQL Tuning > NoSQL >> Key-Value, Wide-Column, Graph, Document
-   Fast-lookups:
-   ------------- >>> RAM [Bounded size] => Redis, Memcached >>> AP [Unbounded size] => Cassandra, RIAK, Voldemort >>> CP [Unbounded size] => HBase, MongoDB, Couchbase, DynamoDB
-   g) Caches > cache stampade > Client caching, CDN caching, Webserver caching, Database caching, Application caching, Cache @Query level, Cache @Object level > Eviction policies: >> Cache aside >> Write through >> Write behind >> Refresh ahead
-   h) Asynchronism > Message queues > Task queues > Back pressure
-   i) Communication > TCP > UDP > REST > RPC
-   j) Indexing - solr
+4. CDN [Push vs Pull]
+5. Load Balancers [Active-Passive, Active-Active, Layer 4, Layer 7]
+6. Reverse Proxy/Forward Proxy
+7. Application layer scaling [Microservices, Service Discovery]
+8. DB [RDBMS, NoSQL]
 
-(5) DEEP DIVE [15-20 min]
-(1) Scaling the algorithm
-(2) Scaling individual components:
--> Availability, Consistency and Scale story for each component
--> Consistency and availability patterns
-(3) Think about the following components, how they would fit in and how it would help
-a) DNS
-b) CDN [Push vs Pull]
-c) Load Balancers [Active-Passive, Active-Active, Layer 4, Layer 7]
-d) Reverse Proxy/Forward Proxy
-e) Application layer scaling [Microservices, Service Discovery]
-f) DB [RDBMS, NoSQL] > RDBMS >> Master-slave, Master-master, Federation, Sharding, Denormalization, SQL Tuning > NoSQL >> Key-Value, Wide-Column, Graph, Document
-Fast-lookups:
-------------- >>> RAM [Bounded size] => Redis, Memcached >>> AP [Unbounded size] => Cassandra, RIAK, Voldemort >>> CP [Unbounded size] => HBase, MongoDB, Couchbase, DynamoDB
-g) Caches > cache stampade > Client caching, CDN caching, Webserver caching, Database caching, Application caching, Cache @Query level, Cache @Object level > Eviction policies: >> Cache aside >> Write through >> Write behind >> Refresh ahead
-h) Asynchronism > Message queues > Task queues > Back pressure
-i) Communication > TCP > UDP > REST > RPC
-j) Indexing - solr
-(6) JUSTIFY [5 min]
-(1) Throughput of each layer
-(2) Latency caused between each layer
-(3) Overall latency justification
+   1. RDBMS
+
+   - Master-slave
+   - Master-master
+   - Federation
+   - Sharding
+
+   2. NoSQL
+
+   - Key-Value
+   - Wide-Column
+   - Graph
+   - Document
+   - Fast-lookups:
+     - RAM [Bounded size] => Redis, Memcached
+     - AP [Unbounded size] => Cassandra, RIAK, Voldemort
+     - CP [Unbounded size] => HBase, MongoDB, Couchbase, DynamoDB
+
+9. Caches
+
+   1. Client caching, CDN caching, Webserver caching, Database caching, Application caching, Cache @Query level, Cache @Object level
+   2. Cache Strategies -
+      1. Cache aside
+      2. Write through
+      3. Write behind
+      4. Refresh ahead
+   3. Cache Eviction Policies - LRU
+   4. cache stampade
+
+10. Asynchronism
+
+- Message queues
+- Task queues
+- Back pressure
+
+11. Communication
+
+- TCP
+- UDP
+- REST
+- RPC
+
+12. Indexing - solr
