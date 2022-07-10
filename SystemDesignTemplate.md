@@ -100,7 +100,7 @@
 
 ## Consistency vs Avaialbaility
 
-- **As per CAP thorem :** Incase of network partiotion you can have Availability or Consistency
+- **As per CAP thorem :** In case of network partiotion you can have Availability or Consistency
 - **Tradeoffs :** In order to achieve a higher degree of consistency, a write operation should be successful once all the replica successfully process writes.This increases the latency and the systems are not highly avaialable.
 
   - **To Achieve both consistency and avialability :** we can have read and write quorum ,in which we need to write 2 out of 3 nodes and same should be followed for read operations.This is a tradeoff.
@@ -119,9 +119,15 @@
 ##### Replication :
 
 - Replication : Data is backedup in another server.
-  - Master-Master
-  - Master-Backup (Read/Write)
+  - Master-Master : Multi master node allows write operations on multiple nodes.
+  - Master-Backup (Read/Write) : Write opertions are performed on master node and read operations are done on replication nodes.
 - Syn vs Async Replication :
   - Sync : A write Transaction to the master is blocked until it is written to the backup nodes.
   - Async : A write Transaction to the master is considered as successful if it written to master ,then asynchrnously the writes are applied to backup nodes.
 - Failover : when the primary database fails and one of the standby databases is transitioned to take over the primary role.
+
+## DNS :
+
+- Map the domain name to ip address ( Rout53 Amzon)
+
+![alt](https://d1.awsstatic.com/Route53/how-route-53-routes-traffic.8d313c7da075c3c7303aaef32e89b5d0b7885e7c.png)
