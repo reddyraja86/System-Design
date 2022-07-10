@@ -97,3 +97,31 @@
 - RPC
 
 12. Indexing - solr
+
+## Consistency vs Avaialbaility
+
+- **As per CAP thorem :** Incase of network partiotion you can have Availability or Consistency
+- **Tradeoffs :** In order to achieve a higher degree of consistency, a write operation should be successful once all the replica successfully process writes.This increases the latency and the systems are not highly avaialable.
+
+  - **To Achieve both consistency and avialability :** we can have read and write quorum ,in which we need to write 2 out of 3 nodes and same should be followed for read operations.This is a tradeoff.
+
+  - To Make More Consistent Systems in Netwrok Partition
+    - Write is successful once write operation is successful all replica nodes  
+      OR
+    - Write is successful : Out of n nodes m nodes are successful.
+    - `Where m<n High Consistency with high m value for write operations ,hight avaialbity when less m value `
+
+##### Consistency Types
+
+1. Strong : At any point of time all nodes will have same data.
+2. Eventual : If an update is made on a node then the updated value will eventually be propagated all nodes to make then consistent.
+
+##### Replication :
+
+- Replication : Data is backedup in another server.
+  - Master-Master
+  - Master-Backup (Read/Write)
+- Syn vs Async Replication :
+  - Sync : A write Transaction to the master is blocked until it is written to the backup nodes.
+  - Async : A write Transaction to the master is considered as successful if it written to master ,then asynchrnously the writes are applied to backup nodes.
+- Failover : when the primary database fails and one of the standby databases is transitioned to take over the primary role.
