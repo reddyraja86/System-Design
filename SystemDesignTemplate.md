@@ -120,12 +120,23 @@
 
 - Replication : Data is backedup in another server.(master to backup read DB)
 - Replication Lag : Time taken to replicate the data from master to read/backup nodes,If replication lag is more and the number of read nodes are more then users may not get the latest updated data as it will take some time to sync.
+
+- Replication Latency can be fixed by following either Sync or Async replication or hybrid replication in which certain nu
+
+- Syn vs Async Replication :
+
+  - Sync : A master node recives write request and it will apply write on all the replication nodes,once it recieves the ack from all then considers write is successful. A write Transaction to the master is blocked until it is written to the backup nodes.
+    - It reduce Application performance.
+  - Async : A write Transaction to the master is considered as successful if it written to master ,then asynchrnously the writes are applied to backup nodes.
+
+- How repplication is done between write and read databases ( depends on Database)
+
+  - Time based snap shot
+  - Change Data stream
+
 - Replication Types :
   - Master-Master : Multi master node allows write operations on multiple nodes.
   - Master-Backup (Read/Write) : Write opertions are performed on master node and read operations are done on replication nodes.
-- Syn vs Async Replication :
-  - Sync : A write Transaction to the master is blocked until it is written to the backup nodes.
-  - Async : A write Transaction to the master is considered as successful if it written to master ,then asynchrnously the writes are applied to backup nodes.
 - Failover : when the primary database fails and one of the standby databases is transitioned to take over the primary role.
 
 Benefits of replication :
@@ -133,6 +144,13 @@ Benefits of replication :
 1.  Faulttolerance
 2.  Scalability
 3.  Avaialbility
+4.  Latency Reduction
+
+Disadvantages :
+
+1. Consistency issue
+
+Solution : Improve consistency in replication using read after write consistency.
 
 ## DNS :
 
