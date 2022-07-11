@@ -118,7 +118,9 @@
 
 ##### Replication :
 
-- Replication : Data is backedup in another server.
+- Replication : Data is backedup in another server.(master to backup read DB)
+- Replication Lag : Time taken to replicate the data from master to read/backup nodes,If replication lag is more and the number of read nodes are more then users may not get the latest updated data as it will take some time to sync.
+- Replication Types :
   - Master-Master : Multi master node allows write operations on multiple nodes.
   - Master-Backup (Read/Write) : Write opertions are performed on master node and read operations are done on replication nodes.
 - Syn vs Async Replication :
@@ -126,8 +128,16 @@
   - Async : A write Transaction to the master is considered as successful if it written to master ,then asynchrnously the writes are applied to backup nodes.
 - Failover : when the primary database fails and one of the standby databases is transitioned to take over the primary role.
 
+Benefits of replication :
+
+1.  Faulttolerance
+2.  Scalability
+3.  Avaialbility
+
 ## DNS :
 
 - Map the domain name to ip address ( Rout53 Amzon)
 
 ![alt](https://d1.awsstatic.com/Route53/how-route-53-routes-traffic.8d313c7da075c3c7303aaef32e89b5d0b7885e7c.png)
+
+## CDN :
