@@ -150,7 +150,7 @@ Disadvantages :
 
 1. Consistency issue
 
-Solution : Improve consistency in replication using read after write consistency.
+Solution : Improve consistency in replication using **_read after write consistency._**
 
 ## DNS :
 
@@ -159,3 +159,13 @@ Solution : Improve consistency in replication using read after write consistency
 ![alt](https://d1.awsstatic.com/Route53/how-route-53-routes-traffic.8d313c7da075c3c7303aaef32e89b5d0b7885e7c.png)
 
 ## CDN :
+
+Content deliver Network can be places at different locations and static data is CDN closer to the user. ( AWS cloudfront)
+
+- Benefits :
+
+1. Lowset latency 
+2. Increses the appliation performance ( as static data server from CDN)
+3. Less burden on servers
+
+
