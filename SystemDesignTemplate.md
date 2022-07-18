@@ -98,7 +98,7 @@
 
 12. Indexing - solr
 
-## Consistency vs Avaialbaility
+## 2.Consistency vs Avaialbaility
 
 - **As per CAP thorem :** In case of network partiotion you can have Availability or Consistency
 - **Tradeoffs :** In order to achieve a higher degree of consistency, a write operation should be successful once all the replica successfully process writes.This increases the latency and the systems are not highly avaialable.
@@ -152,20 +152,50 @@ Disadvantages :
 
 Solution : Improve consistency in replication using **_read after write consistency._**
 
-## DNS :
+## 3.DNS :
 
 - Map the domain name to ip address ( Rout53 Amzon)
 
 ![alt](https://d1.awsstatic.com/Route53/how-route-53-routes-traffic.8d313c7da075c3c7303aaef32e89b5d0b7885e7c.png)
 
-## CDN :
+## 4.CDN :
 
 Content deliver Network can be places at different locations and static data is CDN closer to the user. ( AWS cloudfront)
 
-- Benefits :
+##### Benefits :
 
-1. Lowset latency 
+1. Lowset latency
 2. Increses the appliation performance ( as static data server from CDN)
 3. Less burden on servers
 
+##### CDN Types
 
+1. Push : Application/user will push the in to the CDN.When the content is updated the you need to send the updated content again.
+2. Pull : CDN is reposible for pulling the data from the application/original server.Pull CDN is often used for smaller files, such as website images, javascript, css and html files.
+
+## 5.Load Balacers :
+
+Routes the Request to one of the server.
+
+##### Load Types :
+
+- L4 - Transport Layer :
+  - Generally, this involves the source, destination IP addresses, and ports in the header, but not the contents of the packet.
+  - Based on the content, smart load balancing is not possible.
+  - Fastest.
+- L7 - Physical Layer :
+  - This can involve contents of the header, message, and cookies.
+  - Can route request based on content type.
+- DNS - Included with in DNS server.( Route 53 )
+
+##### Benefits :
+
+1. Lowest Latancy
+2. No Single point of failure
+3. Distributes tthe Load on servers.
+
+##### Load Balancer Alogorithms :
+
+1. Round Robin : Follows round robin algo.
+2. Wightes Round Robin : Add weights to servers and distribute load.
+3. Ip Hash : hash the Ip address and route request to the server.
