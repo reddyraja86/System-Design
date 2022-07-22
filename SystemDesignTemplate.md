@@ -16,7 +16,7 @@
   - Rate Limiting
   - Latency
 
-2. Capacity Planning
+2. Capacity Planning ( Storage & Network bandwidth)
 
    - Find the Number of requests (Read and Write)
      - How many requests per Day (Ex Drivers 100k customers 500k)
