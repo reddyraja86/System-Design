@@ -56,23 +56,23 @@
 7. Application layer scaling [Microservices, Service Discovery]
 8. DB [RDBMS, NoSQL]
 
-   1. RDBMS
+   - RDBMS
 
-   - Master-slave
-   - Master-master
-   - Federation
-   - Sharding
+     - Master-slave
+     - Master-master
+     - Federation
+     - Sharding
 
-   2. NoSQL
+   - NoSQL
 
-   - Key-Value
-   - Wide-Column
-   - Graph
-   - Document
-   - Fast-lookups:
-     - RAM [Bounded size] => Redis, Memcached
-     - AP [Unbounded size] => Cassandra, RIAK, Voldemort
-     - CP [Unbounded size] => HBase, MongoDB, Couchbase, DynamoDB
+     - Key-Value
+     - Wide-Column
+     - Graph
+     - Document
+     - Fast-lookups:
+       - RAM [Bounded size] => Redis, Memcached
+       - AP [Unbounded size] => Cassandra, RIAK, Voldemort
+       - CP [Unbounded size] => HBase, MongoDB, Couchbase, DynamoDB
 
 9. Caches
 
